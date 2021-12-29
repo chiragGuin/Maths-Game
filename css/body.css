@@ -1,0 +1,14 @@
+* {
+        margin: 0;
+        padding: 0;
+}
+
+.game {
+        height: calc(100vh - 10vh);
+}
+
+.title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
