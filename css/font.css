@@ -1,5 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Rye&family=Share&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@350&display=swap');
 
  * {
-        font-family: 'Rye';
+        font-family: 'Roboto Slab';
+}
+
+.or{
+        color: orange;
+}
+
+.title{
+        font-weight: 800;
+        font-size: 2em;
+}
+
+.footer .rfoo {
+        color: white;
+        font-size: 1em;
 }
