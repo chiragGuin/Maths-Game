@@ -152,8 +152,7 @@ function answerChecker() {
         if (wa >= 10) {
                 playable = false;
         }
-        delete(ansval, answers);
-}
+}       
 submit.addEventListener('click', function() {
         answerChecker();
         console.log(score);
