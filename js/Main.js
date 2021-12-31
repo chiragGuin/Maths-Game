@@ -8,10 +8,16 @@ const m = document.getElementById('1');
 const h = document.getElementById('2');
 const sh = document.getElementById('3');
 const sdif = document.getElementById('sdif');
+const num = document.getElementById('numd');
+const scoreDiv = document.getElementById('scr');
+const attDiv = document.getElementById('att');
 let score = 0,
         wa = 0,
+        attl = 10,
         playable = true;
 let easy, medium, difficult, superh, FN, OP, SN, answer;
+
+num.style.display = "none";
 
 e.addEventListener('click', function() {
         easy = true;
@@ -19,6 +25,9 @@ e.addEventListener('click', function() {
         difficult = false;
         superh = false;
         sdif.style.display = "none";
+        num.style.display = "initial";
+        scoreDiv.textContent = 'Score: '+score;
+        attDiv.textContent = 'Attempts Left: '+attl;
         rnd();
         answerSetter();
 })
@@ -29,6 +38,9 @@ m.addEventListener('click', function() {
         difficult = false;
         superh = false;
         sdif.style.display = "none";
+        num.style.display = "initial";
+        scoreDiv.textContent = 'Score: '+score;
+        attDiv.textContent = 'Attempts Left: '+attl;
         rnd();
         answerSetter();
 })
@@ -39,6 +51,9 @@ h.addEventListener('click', function() {
         difficult = true;
         superh = false;
         sdif.style.display = "none";
+        num.style.display = "initial";
+        scoreDiv.textContent = 'Score: '+score;
+        attDiv.textContent = 'Attempts Left: '+attl;
         rnd();
         answerSetter();
 })
@@ -49,6 +64,9 @@ sh.addEventListener('click', function() {
         difficult = false;
         superh = true;
         sdif.style.display = "none";
+        num.style.display = "initial";
+        scoreDiv.textContent = 'Score: '+score;
+        attDiv.textContent = 'Attempts Left: '+attl;
         rnd();
         answerSetter();
 })
@@ -120,8 +138,8 @@ function answerSetter() {
 }
 
 function answerChecker() {
-        if (playable === true) {
-                ansval = ans.value;
+        if ( playable === true) {
+        ansval = ans.value;
                 answers = parseInt(ansval)
                 if (answers === answer) {
                         if (easy === true) {
@@ -138,21 +156,38 @@ function answerChecker() {
                 } else {
                         if (easy === true) {
                                 score -= 25;
+                                        attl -= 1;
+
                         } else if (medium === true) {
                                 score -= 50;
+                                        attl -= 1;
+
                         } else if (difficult === true) {
                                 score -= 250;
+                                        attl -= 1;
+
                         } else if (superh === true) {
                                 score -= 500;
+                                        attl -= 1;
+
                         }
-                }
-        }
-        wa += 1;
-        if (wa >= 10) {
-                playable = false;
-        }
-        delete(ansval, answers);
-}       
+}
+}
+wa += 1;
+if(playable===false && attl === 1){
+attl -= 1;
+scoreDiv.textContent = 'Score: ' + score;
+attDiv.textContent = 'Attempts Left: ' + attl;
+}
+
+if (wa >= 11) {
+playable = false;
+}
+scoreDiv.textContent = 'Score: '+score;
+attDiv.textContent = 'Attempts Left: '+attl;
+delete(ansval, answers);
+}
+
 submit.addEventListener('click', function() {
         answerChecker();
         console.log(score);
