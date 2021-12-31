@@ -106,7 +106,6 @@ function rnd() {
                 sn.textContent = SN;
         }
 }
-
 function answerSetter() {
         if (playable === true) {
                 if (OP === '+') {
