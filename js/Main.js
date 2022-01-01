@@ -26,8 +26,8 @@ e.addEventListener('click', function() {
         superh = false;
         sdif.style.display = "none";
         num.style.display = "initial";
-        scoreDiv.textContent = 'Score: '+score;
-        attDiv.textContent = 'Attempts Left: '+attl;
+        scoreDiv.textContent = 'Score: ' + score;
+        attDiv.textContent = 'Attempts Left: ' + attl;
         rnd();
         answerSetter();
 })
@@ -39,8 +39,8 @@ m.addEventListener('click', function() {
         superh = false;
         sdif.style.display = "none";
         num.style.display = "initial";
-        scoreDiv.textContent = 'Score: '+score;
-        attDiv.textContent = 'Attempts Left: '+attl;
+        scoreDiv.textContent = 'Score: ' + score;
+        attDiv.textContent = 'Attempts Left: ' + attl;
         rnd();
         answerSetter();
 })
@@ -52,8 +52,8 @@ h.addEventListener('click', function() {
         superh = false;
         sdif.style.display = "none";
         num.style.display = "initial";
-        scoreDiv.textContent = 'Score: '+score;
-        attDiv.textContent = 'Attempts Left: '+attl;
+        scoreDiv.textContent = 'Score: ' + score;
+        attDiv.textContent = 'Attempts Left: ' + attl;
         rnd();
         answerSetter();
 })
@@ -65,8 +65,8 @@ sh.addEventListener('click', function() {
         superh = true;
         sdif.style.display = "none";
         num.style.display = "initial";
-        scoreDiv.textContent = 'Score: '+score;
-        attDiv.textContent = 'Attempts Left: '+attl;
+        scoreDiv.textContent = 'Score: ' + score;
+        attDiv.textContent = 'Attempts Left: ' + attl;
         rnd();
         answerSetter();
 })
@@ -124,6 +124,7 @@ function rnd() {
                 sn.textContent = SN;
         }
 }
+
 function answerSetter() {
         if (playable === true) {
                 if (OP === '+') {
@@ -138,8 +139,8 @@ function answerSetter() {
 }
 
 function answerChecker() {
-        if ( playable === true) {
-        ansval = ans.value;
+        if (playable === true) {
+                ansval = ans.value;
                 answers = parseInt(ansval)
                 if (answers === answer) {
                         if (easy === true) {
@@ -156,34 +157,32 @@ function answerChecker() {
                 } else {
                         if (easy === true) {
                                 score -= 25;
-                                        attl -= 1;
-wa += 1;
+                                attl -= 1;
+                                wa += 1;
 
                         } else if (medium === true) {
                                 score -= 50;
-                                        attl -= 1;
-wa += 1;
+                                attl -= 1;
+                                wa += 1;
 
                         } else if (difficult === true) {
                                 score -= 250;
-                                        attl -= 1;
-wa += 1;
+                                attl -= 1;
+                                wa += 1;
 
                         } else if (superh === true) {
                                 score -= 500;
-             attl -= 1;
-             wa += 1;
-
-
+                                attl -= 1;
+                                wa += 1;
                         }
-}
-}
-if (wa === 10) {
-playable = false;
-}
-scoreDiv.textContent = 'Score: '+score;
-attDiv.textContent = 'Attempts Left: '+attl;
-delete(ansval, answers);
+                }
+        }
+        if (wa === 10) {
+                playable = false;
+        }
+        scoreDiv.textContent = 'Score: ' + score;
+        attDiv.textContent = 'Attempts Left: ' + attl;
+        delete(ansval, answers);
 }
 
 submit.addEventListener('click', function() {
