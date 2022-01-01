@@ -134,7 +134,6 @@ function answerSetter() {
                 } else if (OP === '*') {
                         answer = FN * SN;
                 }
-                console.log(FN, OP, SN, '=', answer);
         }
 }
 
@@ -187,5 +186,4 @@ function answerChecker() {
 
 submit.addEventListener('click', function() {
         answerChecker();
-        console.log(score);
 })
