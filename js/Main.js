@@ -180,8 +180,11 @@ scoreDiv.textContent = 'Score: ' + score;
 attDiv.textContent = 'Attempts Left: ' + attl;
 }
 
-if (wa >= 11) {
+if (wa === 11) {
 playable = false;
+}
+if (attl<0){
+        attl = 0;
 }
 scoreDiv.textContent = 'Score: '+score;
 attDiv.textContent = 'Attempts Left: '+attl;
