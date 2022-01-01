@@ -157,34 +157,29 @@ function answerChecker() {
                         if (easy === true) {
                                 score -= 25;
                                         attl -= 1;
+wa += 1;
 
                         } else if (medium === true) {
                                 score -= 50;
                                         attl -= 1;
+wa += 1;
 
                         } else if (difficult === true) {
                                 score -= 250;
                                         attl -= 1;
+wa += 1;
 
                         } else if (superh === true) {
                                 score -= 500;
-                                        attl -= 1;
+             attl -= 1;
+             wa += 1;
+
 
                         }
 }
 }
-wa += 1;
-if(playable===false && attl === 1){
-attl -= 1;
-scoreDiv.textContent = 'Score: ' + score;
-attDiv.textContent = 'Attempts Left: ' + attl;
-}
-
-if (wa === 11) {
+if (wa === 10) {
 playable = false;
-}
-if (attl<0){
-        attl = 0;
 }
 scoreDiv.textContent = 'Score: '+score;
 attDiv.textContent = 'Attempts Left: '+attl;
