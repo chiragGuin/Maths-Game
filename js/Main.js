@@ -186,4 +186,5 @@ function answerChecker() {
 
 submit.addEventListener('click', function() {
         answerChecker();
+        ans.value = null;
 })
