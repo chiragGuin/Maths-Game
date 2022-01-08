@@ -3,3 +3,9 @@
         background: none;
         padding: 1vh 3vw;
 }
+
+.P-A {
+        border: .2vh solid black;
+        border-radius: 5vh;
+}
+
