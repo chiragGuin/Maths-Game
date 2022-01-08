@@ -19,8 +19,8 @@ let score = 0,
         star = 0,
         trophy = 0,
         crown = 0,
-        won=false,
-        lost=false,
+        won = false,
+        lost = false,
         playable = true;
 let easy, medium, difficult, superh, FN, OP, SN, answer;
 
@@ -185,32 +185,33 @@ function answerChecker() {
         }
         if (wa === 10) {
                 playable = false;
-                lost=true;
+                lost = true;
         }
         scoreDiv.textContent = "Score: " + score;
         attDiv.textContent = "Attempts Left: " + attl;
 }
-function winChecker(){
-        if(answers === answer){
-        if(won === false && lost === false){
-        if(star === 5) {
-                trophy++;
-                cr;
-        }
-        if(trophy === 5){
-                crown++;
-        }
-        if(crown===5){
-                won=true;
-        }
-        }else if(won=true){
-/* you won */ 
-        }
+
+function winChecker() {
+        if (answers === answer) {
+                if (won === false && lost === false) {
+                        if (star === 5) {
+                                trophy++;
+                                cr;
+                        }
+                        if (trophy === 5) {
+                                crown++;
+                        }
+                        if (crown === 5) {
+                                won = true;
+                        }
+                } else if (won = true) {
+                        /* you won */
+                }
         }
 }
 
-function resShow(){
-        if(won===true){
+function resShow() {
+        if (won === true) {
                 wonD.innerHTML = `
                                 <div>
                                 You Won!!!
@@ -218,11 +219,11 @@ function resShow(){
                                 <input type="submit" id="playAgain" class="P-A button" value="Play Again">
                                 `
                 ap.style.display = 'none';
-const playa = document.getElementById('playAgain')
-playa.addEventListener('click', function() {
-        window.location.reload(true);
-})
-        }else if(lost===true){
+                const playa = document.getElementById('playAgain')
+                playa.addEventListener('click', function() {
+                        window.location.reload(true);
+                })
+        } else if (lost === true) {
                 wonD.innerHTML = `
                                 <div>
                                 You Lost
@@ -230,10 +231,10 @@ playa.addEventListener('click', function() {
                                 <input type="submit" id="playAgain" class="P-A button" value="Play Again">
                                 `
                 ap.style.display = 'none';
-        const playa = document.getElementById('playAgain')
-        playa.addEventListener('click', function() {
-        window.location.reload(true);
-})
+                const playa = document.getElementById('playAgain')
+                playa.addEventListener('click', function() {
+                        window.location.reload(true);
+                })
         }
 }
 
@@ -244,4 +245,3 @@ submit.addEventListener("click", function() {
         resShow();
         ans.value = null;
 })
-
