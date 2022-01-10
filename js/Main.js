@@ -11,8 +11,9 @@ const sdif = document.getElementById("sdif");
 const num = document.getElementById("numd");
 const scoreDiv = document.getElementById("scr");
 const attDiv = document.getElementById("att");
-const ap = document.getElementById('h');
+const whole = document.getElementById('h');
 const wonD = document.getElementById("won");
+const imgDiv = document.getElementById('img');
 let score = 0,
         wa = 0,
         attl = 10,
@@ -22,7 +23,7 @@ let score = 0,
         won = false,
         lost = false,
         playable = true;
-let easy, medium, difficult, superh, FN, OP, SN, answer;
+let easy, medium, difficult, superh, FN, OP, SN, answer, ansCor;
 
 num.style.display = "none";
 
@@ -118,9 +119,9 @@ function rnd() {
                         OP = Math.ceil(Math.random() * 3);
                         if (OP === 0) {
                                 OP = "+";
-                        } else if (OP === 2) {
+                        } else if (OP === 1) {
                                 OP = "-";
-                        } else {
+                        } else if (OP === 2){
                                 OP = "*";
                         }
                         SN = Math.ceil(Math.random() * 500);
@@ -151,12 +152,21 @@ function answerChecker() {
                 if (answers === answer) {
                         if (easy === true) {
                                 score += 50;
+                                star++;
+                                ansCor = true;
                         } else if (medium === true) {
                                 score += 100;
+                                star++;
+                                ansCor = true;
                         } else if (difficult === true) {
                                 score += 500;
+                                                                star++;
+                                ansCor = true;
+
                         } else if (superh === true) {
                                 score += 1000;
+                                star++;
+                                ansCor = true;
                         }
                         rnd();
                         answerSetter();
@@ -165,17 +175,14 @@ function answerChecker() {
                                 score -= 25;
                                 attl -= 1;
                                 wa += 1;
-
                         } else if (medium === true) {
                                 score -= 50;
                                 attl -= 1;
                                 wa += 1;
-
                         } else if (difficult === true) {
                                 score -= 250;
                                 attl -= 1;
                                 wa += 1;
-
                         } else if (superh === true) {
                                 score -= 500;
                                 attl -= 1;
@@ -196,7 +203,6 @@ function winChecker() {
                 if (won === false && lost === false) {
                         if (star === 5) {
                                 trophy++;
-                                cr;
                         }
                         if (trophy === 5) {
                                 crown++;
@@ -204,8 +210,6 @@ function winChecker() {
                         if (crown === 5) {
                                 won = true;
                         }
-                } else if (won = true) {
-                        /* you won */
                 }
         }
 }
@@ -218,7 +222,7 @@ function resShow() {
                                 </div>
                                 <input type="submit" id="playAgain" class="P-A button" value="Play Again">
                                 `
-                ap.style.display = 'none';
+                whole.style.display = 'none';
                 const playa = document.getElementById('playAgain')
                 playa.addEventListener('click', function() {
                         window.location.reload(true);
@@ -230,7 +234,7 @@ function resShow() {
                                 </div>
                                 <input type="submit" id="playAgain" class="P-A button" value="Play Again">
                                 `
-                ap.style.display = 'none';
+                whole.style.display = 'none';
                 const playa = document.getElementById('playAgain')
                 playa.addEventListener('click', function() {
                         window.location.reload(true);
@@ -238,10 +242,44 @@ function resShow() {
         }
 }
 
+function SHOW(){
+        if(ansCor === true){
+                if(star <= 5 && crown === 0 && trophy === 0) {
+                        img = document.createElement('img');
+                        img.src = './img/star.png';
+                        img.className = 'img';
+                        img.id = 'star';
+                        for (i = 1; i <= star; i++) {
+                                imgDiv.appendChild(img);
+                                console.log(img.id);
+                        }
+                } else if (crown === 0 && trophy !== 0) {
+                        let imgId = document.getElementById('star')
+                        imgId.style.display = 'none';
+                        img = document.createElement('img');
+                        img.src = './img/crown.png';
+                        img.className = 'img';
+                        for (i = 1; i <= star; i++) {
+                                imgDiv.appendChild(img);
+                        }
+                } else {
+                        img = document.createElement('img');
+                        img.src = './img/trophy.png';
+                        img.className = 'img';
+                
+                        for (i = 1; i <= star; i++) {
+                                imgDiv.appendChild(img);
+                        }
+                }
+        }
+}
 
 submit.addEventListener("click", function() {
         answerChecker();
         winChecker();
         resShow();
+        SHOW();
         ans.value = null;
+        ansCor = null;
+        console.log(star);
 })
