@@ -3,7 +3,7 @@
         "version": "1.0.0",
         "name": "Maths Quiz Game",
         "action": {
-                "default_popup": "index.html",
+                "default_popup": ".html",
                 "default_icon": "img/Icon.png"
         }
 }
