@@ -13,7 +13,6 @@ const scoreDiv = document.getElementById("scr");
 const attDiv = document.getElementById("att");
 const whole = document.getElementById('h');
 const wonD = document.getElementById("won");
-const imgDiv = document.getElementById('img');
 let score = 0,
         wa = 0,
         attl = 10,
@@ -242,44 +241,12 @@ function resShow() {
         }
 }
 
-function SHOW(){
-        if(ansCor === true){
-                if(star <= 5 && crown === 0 && trophy === 0) {
-                        img = document.createElement('img');
-                        img.src = './img/star.png';
-                        img.className = 'img';
-                        img.id = 'star';
-                        for (i = 1; i <= star; i++) {
-                                imgDiv.appendChild(img);
-                                console.log(img.id);
-                        }
-                } else if (crown === 0 && trophy !== 0) {
-                        let imgId = document.getElementById('star')
-                        imgId.style.display = 'none';
-                        img = document.createElement('img');
-                        img.src = './img/crown.png';
-                        img.className = 'img';
-                        for (i = 1; i <= star; i++) {
-                                imgDiv.appendChild(img);
-                        }
-                } else {
-                        img = document.createElement('img');
-                        img.src = './img/trophy.png';
-                        img.className = 'img';
-                
-                        for (i = 1; i <= star; i++) {
-                                imgDiv.appendChild(img);
-                        }
-                }
-        }
-}
+
 
 submit.addEventListener("click", function() {
         answerChecker();
         winChecker();
         resShow();
-        SHOW();
         ans.value = null;
         ansCor = null;
-        console.log(star);
 })
