@@ -1,4 +1,7 @@
-var fs = reqire('fs');
-var readMe = fs.readFileSync('./scores.txt', 'utf-8');
+info = {
+        name: "Chirag",
+        age: 13,
+        Male: true
+}
 
-console.log(readMe);
+module.exports = info;

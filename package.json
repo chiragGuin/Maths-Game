@@ -1,21 +1,25 @@
 {
-  "name": "maths-game",
-  "version": "1.0.0",
-  "description": "### [Lisence](https://github.com/chiragGuin/Maths-Game/blob/main/LICENSE)",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chiragguin/maths-game.git"
-  },
-  "author": "chirag-guin",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chiragguin/maths-game/issues"
-  },
-  "homepage": "https://github.com/chiragguin/maths-game#readme"
+        "name": "Maths Quiz Game",
+        "version": "1.0.0",
+        "description": "### [Lisence](https://github.com/chiragGuin/Maths-Game/blob/main/LICENSE)",
+        "main": "js/server.js",
+        "dependencies": {},
+        "devDependencies": {},
+        "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "repository": {
+                "type": "git",
+                "url": "git+https://github.com/chiragguin/maths-game.git"
+        },
+        "author": "chirag-guin",
+        "license": "ISC",
+        "bugs": {
+                "url": "https://github.com/chiragguin/maths-game/issues"
+        },
+        "action": {
+                "default_popup": "index.html",
+                "default_icon": "img/Icon.png"
+        },
+        "homepage": "https://github.com/chiragguin/maths-game#readme"
 }
